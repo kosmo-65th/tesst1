@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>회원</title>
+	<meta name="description" content="승운서점/문제집 판매" />
+	
+	<!-- META -->
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<!-- CSS -->
+	<link href="./css/layout.css" rel="stylesheet" />
+	<link href="./css/reset.css" rel="stylesheet" />
+	<link href="./css/member.css" rel="stylesheet" />
+	
+	<!-- JS -->
+	<script src="./js/jquery-3.5.1.js" type="text/javascript"></script>
+	<script type="text/javascript">
+	function view_click() {
+	  	var i,p,v,obj;
+	  	var args=view_click.arguments;
+	  	for (i=0; i<(args.length-2); i+=3) with (document) 
+	  	if (getElementById && ((obj=getElementById(args[i]))!=null)) { v=args[i+2];
+			if (obj.style) { 
+				obj=obj.style; 
+				v=(v=='show')?'block':(v=='hide')?'none':v; 
+			}
+			obj.display=v; 
+		}
+	}
+	</script>
+</head>
+<body>
+
+<!-- HEADER -->
+<div id="header_member">
+	<h1 class="logo"><a href="main.html">승운서점/문제집 판매</a></h1>
+</div><!-- //HEADER -->
+
+<!-- CONTENTS -->
+<div id="container_member">
+	<!-- 타이틀 -->
+	<h2>로그인</h2>
+	<!-- //타이틀 -->
+
+	<!-- 위치 네비게인션 -->
+	<div class="history_menu">
+		<ul>
+			<li class="home"><div><a href="main.html">HOME</a> <span> &gt; </span></div></li>
+			<li><div><strong>회원</strong> <span> &gt; </span></div></li>
+			<li><div><strong>로그인</strong></div></li>
+		</ul>
+	</div>
+	<!-- //위치 네비게인션 -->
+
+	<!-- 본문 -->
+	<div id="div_center" class="contants_area">
+		<p class="sumbold">승운서점에 오신것을 진심으로 환영합니다.</p>
+
+		<!-- 로그인 -->
+		<fieldset>
+			<legend>검색</legend>
+			<div id="login_member" class="login_area" style="display:block;">
+				<div class="tab_menu">
+					<h3>회원 로그인</h3>
+					<p><a href="javascript:;" onClick="view_click('login_member','','hide','login_nonmember','','show')">비회원 로그인</a></p>
+				</div>
+
+            <form name="loginForm" method="post" action="" onsubmit="return loginClick();">
+                <!-- 원래 로그인단에서 쓰던 hidden 요소
+                <input type="hidden" name="sa" value="login"/>
+                <input type="hidden" name="returnUrl" value="http%3A%2F%2Fwww.pauline.or.kr"/>
+                 -->
+				<div class="login_input_area">
+					<label class="login_txt"><input type="text" name="uid" value="" placeholder="아이디"></label>
+					<label class="login_txt"><input type="password" name="upwd" value="" placeholder="비밀번호"></label>
+					<label class="login_btn"><input type="submit" value="로그인"></label>
+					<label class="login_check"><input type="checkbox" name="idsave" value="Y" > <span>아이디 저장하기</span></label>
+				</div>
+            </form>
+				<div class="space_line"></div>
+				<div class="btn_defualt mb30">
+					<a href="admit.html" class="btn_Gray">회원가입</a>
+					<a href="intro.html" class="btn_Gray">아이디 찾기</a>
+					<a href="intro.html" class="btn_Gray">비밀번호 찾기</a>
+				</div>
+			</div>
+
+			<!-- 비회원 로그인 -->
+			<div id="login_nonmember" class="login_area">
+				<div class="tab_menu">
+					<p class="right"><a href="javascript:;" onClick="view_click('login_member','','show','login_nonmember','','hide')">회원 로그인</a></p>
+					<h3>비회원 로그인</h3>
+				</div>
+
+            <form name="loginForm2" method="post" action="" onsubmit="return login2Click();">
+                <input type="hidden" name="sa" value="login"/>
+                <input type="hidden" name="returnUrl" value="http%3A%2F%2Fwww.pauline.or.kr"/>
+				<div class="login_input_area">
+					<label class="login_txt"><input type="text" name="name" value="" placeholder="이름"></label>
+					<label class="login_txt"><input type="text" name="email" value="" placeholder="이메일"></label>
+					<label class="login_txt"><input type="password" name="pwd" value="" placeholder="비밀번호"></label>
+					<label class="login_btn no_member"><input type="submit" value="로그인"></label>
+				</div>
+				<p class="txt"><strong>※ 비회원 로그인 입니다.</strong></p>
+            </form>
+
+				<div class="join_area">
+					<h4>비회원 구매 약관 동의</h4>
+					<div class="scroll_box">
+						<h1 class="top">▣ 비회원 구매 약관 동의</h1>
+<p>비회원 구매를 위해 약관내용을 확인하신 후 동의하여 주시기 바랍니다.</p>
+<p>&nbsp;</p>
+
+<h2>수집하는 개인정보의 항목</h2>
+<p>1. “승운서점”은 비회원 구매, 원활한 고객상담, 각종 서비스의 제공을 위해 비회원 주문 이용 시 아래와 같은 개인정보를 수집하고 있습니다.</p>
+<p>- 필수항목:  주문자명, 주문자 휴대전화번호, 전화번호, 이메일, 비밀번호, 배송방법(구분), 배송주소, 수신자명, 수신자 휴대전화번호</p>
+<p>- 선택항목: 주문자 연락처, 배송정보, 수신자 연락처(수신자 다를 때)</p>
+<p>- 개인정보 수집방법 : 홈페이지(비회원 구매)</p>
+<p>2. 서비스 이용과정에서 아래와 같은 정보들이 자동으로 생성되어 수집될 수 있습니다.</p>
+<p>- IP Address, 쿠키, 방문 일시, OS종류, 브라우저 종류, 서비스 이용 기록, 불량 이용 기록</p>
+<p>3. 부가 서비스 및 맞춤식 서비스 이용 또는 이벤트 응모 과정에서 해당 서비스의 이용자에 한해서만 아래와 같은 정보들이 수집될 수 있습니다.</p>
+<p>- 개인정보 추가 수집에 대해 동의를 받는 경우</p>
+<p>4, 유료 서비스 이용 과정에서 아래와 같은 정보들이 수집될 수 있습니다.</p>
+<p>- 신용카드 결제 시: 카드사명, 카드번호 등</p>
+<p>- 휴대전화 결제 시: 휴대전화번호, 통신사, 결제승인번호, 이메일 주소 등</p>
+<p>- 계좌이체 시: 은행명, 계좌번호 등</p>
+<p>- 상품권 이용 시: 상품권 번호</p>
+<p>- 환불 시: 환불계좌정보(은행명, 계좌번호, 예금주명)</p>
+<p>&nbsp;</p>
+
+<h2>개인정보의 위탁에 대한 안내</h2>
+<p>“승운서점”은 배송, 요금정산 등 기본서비스 제공을 위한 개인정보 처리업무 외에는 외부업체에 위탁하고 있지 않으며, 관계법령에 따라 위탁계약 시 개인정보가 안전하게 관리될 수 있도록 필요한 사항들을 규정하고 있습니다.</p>
+<p>&lt;승운서점의 개인정보 위탁처리 기관 및 위탁업무 내용&gt;</p>
+<p>- 제공받는 자: LG U+, 나이스, 금융결제원, KICC</p>
+<p>- 제공목적: 서비스요금 정산</p>
+<p>- 제공받는 자: CJ 대한통운택배, 우체국 외 기타 배송업체</p>
+<p>- 제공목적: 상품배송업무</p>
+<p>&nbsp;</p>
+
+<h2>개인정보의 수집 및 이용목적</h2>
+<p>“승운서점"은 수집한 개인정보를 다음의 목적을 위해 활용합니다. 이용자가 제공한 모든 정보는 하기 목적에 필요한 용도 이외로는 사용되지 않으며, 이용 목적이 변경될 시에는 사전 동의를 구할 것입니다.</p>
+<p>① 서비스 제공에 관한 계약 이행 및 서비스 제공에 따른 요금정산</p>
+<p>- 콘텐츠 제공, 특정 맞춤서비스 제공, 물품배송 또는 청구서 등 발송, 금융거래 본인 인증 및 금융서비스, 구매 및 요금결제, 요금추심 등</p>
+<p>② 비회원 관리</p>
+<p>- 비회원 구매 서비스 이용에 따른 본인확인, 개인식별, 분쟁조정을 위한 기록보존, 불만처리 등 민원처리, 고지사항 전달</p>
+<p>&nbsp;</p>
+
+<h2>개인정보의 보유 및 이용기간</h2>
+<p>이용자의 개인정보는 원칙적으로 개인정보의 수집 및 이용목적이 달성되면 지체 없이 파기합니다. 단, 다음의 정보에 대해서는 아래의 이유로 명시한 기간 동안 보존합니다.</p>
+<p>① 관련법령에 의한 정보보유 사유</p>
+<p>상법, 전자상거래 등에서의 소비자 보호에 관한 법률 등 관계법령의 규정에 의하여 보존할 필요가 있는 경우 “승운서점”은 관계법령에서 정한 일정한 기간 동안 회원정보를 보관합니다. 이 경우 “승운서점”은 보관하는 정보를 그 보관의 목적으로만 이용하며 보존기간은 아래와 같습니다.</p>
+<p>ⓐ 계약 또는 청약철회 등에 관한 기록</p>
+<p>- 보존근거: 전자상거래 등에서의 소비자 보호에 관한 법률</p>
+<p>- 보존기간: 5년</p>
+<p>ⓑ 대금결제 및 재화 등의 공급에 관한 기록</p>
+<p>- 보존근거: 전자상거래 등에서의 소비자 보호에 관한 법률</p>
+<p>- 보존기간: 5년</p>
+<p>ⓒ 소비자의 불만 또는 분쟁처리에 관한 기록</p>
+<p>- 보존근거: 전자상거래 등에서의 소비자 보호에 관한 법률</p>
+<p>- 보존기간 : 3년</p>
+<p>ⓓ 본인 확인에 관한 기록</p>
+<p>- 보존근거: 정보통신망 이용촉진 및 정보보호 등에 관한 법률</p>
+<p>- 보존기간: 6개월</p>
+<p>ⓔ 웹사이트 방문기록</p>
+<p>- 보존근거: 통신비밀보호법</p>
+<p>- 보존기간: 3개월</p>					</div>
+					<div class="agree_box">
+						<p>개인정보 보호정책에 동의 하십니까?</p>
+						<label class="i_radio active"><input name="agree"  type="radio" value="Y"> <span>동의</span></label>
+						<label class="i_radio"><input name="agree"  type="radio" value="N" checked="checked"> <span>동의 안함</span></label>
+					</div>
+				</div>
+
+			</div>
+		</fieldset>
+	</div><!-- 로그인 -->
+</div>
+<div id="footer"><!-- footer 시작 -->
+	<div class="foot_menu">
+		<ul>
+			<li><a href="intro.html">회사 소개</a></li>
+			<li><a href="#">이용약관</a></li>
+			<li><a href="#" class="curr">개인정보 취급방법</a></li>
+			<li><a href="#">고객센터</a></li>
+		</ul>
+	</div>
+
+	<div class="foot_con">
+		<div class="foot_logo">
+			<p><strong>승운서점</strong></p>
+		</div>
+
+		<div class="foot_address">
+			<p>승운서점 <span>l</span> 대표자: 한승운 <span>l</span> 소재지: 서울시 은평구 응암동</p>
+			<p>사업자등록번호: 123456789 <span>l</span> 통신판매업신고: 제 123456호</a></p>
+			<p>호스팅제공자: 한승운 <span>l</span> 개인정보관리책임자: 한승운<span>l</span> <a href="#">E-mail: swhan9404@naver.com</a></p>
+			<p><em>&copy; 한승운 2020 All rights reserved</em></p>
+		</div>
+
+		<div class="foot_costomer">
+			<p><strong>고객센터</strong></p>
+			<p><strong><em>010-2599-3237</em></strong></p>
+			<p>평일: 9시 30분 ~ 18시 30분<br>점심시간: 13시 20분 ~ 14시 30분<br>토요일·일요일·공휴일 휴무</p>
+			<div class="foot_costomer_btn">
+				<p><a href="#">게시판</a></p>
+				<p><a href="#">온라인문의</a></p>
+				<p><a href="intro.html">홈페이지소개</a></p>
+			</div>
+		</div>
+	</div>
+</div><!-- footer 종료 -->
+</body>
+</html>

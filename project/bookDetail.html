@@ -1,0 +1,368 @@
+<!doctype html>
+<html lang="ko">
+<head>
+	<title>승운서점</title>
+	<meta name="description" content="승운서점/문제집 판매" />
+	
+	<!-- META -->
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<!-- CSS -->
+	<link href="./css/layout.css" rel="stylesheet" />
+	
+	<link href="./css/reset.css" rel="stylesheet" />
+	<link href="./css/main.css" rel="stylesheet" />
+	<link href="./css/slick.css" rel="stylesheet" />
+	
+	<link href="./css/common.css" rel="stylesheet" />
+	<link href="./css/bookDetail.css" rel="stylesheet" />
+	
+	<!-- JS -->
+	<script src="./js/jquery-3.5.1.js" type="text/javascript"></script>
+	<script src="./js/slick.js" type="text/javascript"></script>
+	<!-- 
+	<script src="./js/touchSlider.js" type="text/javascript"></script>
+	 -->
+	<!-- 
+	<script src="/js/common.js?cv=2020-05-29-001" type="text/javascript"></script>
+	 -->
+</head>
+
+<body>
+<div id="wrap_main">
+
+<!-- HEADER -->
+<section id="head">
+<div id="header">
+	<!-- TOP 메뉴 -->
+	<div class="top_menu_area">
+		<ul class="top_menu_left">
+			<li><a href = "http://localhost/web_65/project/main.html" target="_blank">관리자페이지</a></li>
+		</ul>
+		<ul class="top_menu">		
+			<li><a href="login.html" class="top_login">로그인</a></li>
+			<li><a href="admit.html">회원가입</a></li>
+			<li><a href="/customer">고객센터</a></li>
+			<li><a href="./myPage.html">마이페이지</a></li>
+		</ul>
+	</div>
+	<!-- //TOP 메뉴 -->
+
+
+
+	<!-- 로고 -->
+	<h1 class="logo"><a href="http://localhost/web_65/project/main.html">로고</a></h1>
+	<!-- //로고 -->
+
+	<!-- 검색 -->
+	<div class="top_search_area">
+		<!-- 일반검색 -->
+        <form name="quickForm" id="quickForm" method="get">
+        <input type="hidden" name="1" value="1"/>
+        <input type="hidden" name="gc" value=""/>
+        <input type="hidden" name="init" value="Y"/>
+        <input type="hidden" name="stype" value="A"/>
+		<fieldset>
+			<legend></legend>
+			<div class="top_search">
+				<div class="curr"><span>모든매체</span>
+					<ul id="quickFormCategory">
+						<li><a href="javascript:void(0);" onclick="onChangeQuickSearchCategory('ALL', '모든매체');">모든매체</a></li>
+						<li><a href="javascript:void(0);" onclick="onChangeQuickSearchCategory('BO', '산업공단');">산업공단</a></li>
+						<li><a href="javascript:void(0);" onclick="onChangeQuickSearchCategory('M1', '자격증');">자격증</a></li>
+						<li><a href="javascript:void(0);" onclick="onChangeQuickSearchCategory('P0', '어학');">어학</a></li>
+						<li><a href="javascript:void(0);" onclick="onChangeQuickSearchCategory('M2', '컴퓨터/IT');">컴퓨터/IT</a></li>
+					</ul>
+				</div>
+				<label><input type="text" id="mainKeyword" name="d_s" value="" title="검색어를 입력하세요" onkeydown="procEnterKey(event, quickSearch)"></label>
+			</div>
+
+<script type="text/javascript">
+//검색
+	function quickSearch() {
+		var f = document.quickForm;
+		if( !f.d_s.value ) {
+			alert("검색어를 입력하세요");
+			f.d_s.focus();
+			return;
+		}
+		f.action = "/search";
+		f.submit();
+		f=./bookDetail.html;
+	}
+	//검색 분야 변경
+	function onChangeQuickSearchCategory(v, txt) {
+		var f = document.quickForm;
+		f.gc.value = v;
+		f=./bookDetail.html;
+		$("#quickFormCategory").parent().children("span").text(txt);
+}
+</script>
+
+			<div class="btn"><a href="./searchList.html" onclick="quickSearch();" title="검색">검색</a></div>
+
+			<!-- 추천키워드 -->
+			<div class="top_search_word">
+				<a href="javascript:void(0);" class="arrow-left">이전</a>
+                <div class="search_word_box"><span>
+<a href="javascript:void(0);" style="padding-left: 0;">정보처리기사</a> 
+<a href="javascript:void(0);" style="">TOEIC</a> 
+<a href="javascript:void(0);" style="">한식조리기능사</a> 
+<a href="javascript:void(0);" style="">한국어능력시험</a> 
+<a href="javascript:void(0);" style="">운전면허</a> 
+<a href="javascript:void(0);" style="">JLPT</a> 
+                </span></div>
+				<a href="javascript:void(0);" class="arrow-right">다음</a>
+			</div>
+		</fieldset>
+        </form>
+        <script>
+            $(document).ready(function(){/* 추천키워드 <> 이동  */
+                $(".arrow-left").click(function(){
+                    moveSearchWordBox('+');
+                });
+                $(".top_search_word>a.arrow-right").click(function(){
+                    moveSearchWordBox('-');
+                });
+            });
+            function moveSearchWordBox(signed)
+            {
+                var box_width = $(".search_word_box").width();
+                var box_span_width = $(".search_word_box>span").width();
+                if (box_span_width > box_width)
+                {
+                    var sleft = parseInt($(".search_word_box>span").css("left"), 10);
+
+                    var tmp_width = sleft + box_span_width;
+
+                    var mv = 0;
+                    if (signed == '-')
+                    {
+                        mv = tmp_width > box_width ? (tmp_width - box_width < box_width  ? tmp_width - box_width : box_width) : 0;
+                    }
+                    else
+                    {
+                        mv = sleft < 0 ? (Math.abs(sleft) > box_span_width  ? sleft + box_span_width : Math.abs(sleft)) : 0;
+                    }
+
+                    $(".search_word_box>span").stop().animate({left: signed+"="+mv}, 500, function(){});
+                }
+            }
+        </script>
+
+	</div>
+	<!-- //검색 -->
+<!-- 오른쪽 배너 -->
+<div class="top_banner_area">
+ <div class="top_banner">
+<div><a href="javascript:void(0)" target="_self"><img src="#" alt=""></a></div>
+ </div>
+</div>
+<script type="text/javascript">
+</script>
+<!-- //오른쪽 배너 -->
+
+	<!-- GNB 메뉴 -->
+	<nav class="gnb_area" id="navigation" tabindex="0">
+		<div class="gnb">
+			<ul class="depth1">
+				<li><a href="./searchList.html?menu" class="">산업입력관리공단</a>
+<ul class="depth2">
+<li><a href="./searchList.html?menu" target="_self">토목</a></li>
+<li><a href="./searchList.html?menu" target="_self">건설</a></li>
+<li><a href="./searchList.html?menu" target="_self">환경</a></li>
+<li><a href="./searchList.html?menu" target="_self">에너지</a></li>
+<li><a href="./searchList.html?menu" target="_self">전기</a></li>
+<li><a href="./searchList.html?menu" target="_self">기계</a></li>
+<li><a href="./searchList.html?menu" target="_self">산업응용</a></li>
+<li><a href="./searchList.html?menu" target="_self">위생</a></li>
+<li><a href="./searchList.html?menu" target="_self">기타</a></li>
+</ul>
+				</li>
+				<li><a href="/media" class="">자격증</a>
+<ul class="depth2">
+<li><a href="./searchList.html?menu" target="_self">조리/미용/패션</a></li>
+<li><a href="./searchList.html?menu" target="_self">한국어능력시험</a></li>
+<li><a href="./searchList.html?menu" target="_self">한자능력검정시험</a></li>
+<li><a href="./searchList.html?menu" target="_self">공인중개사/주택관리사</a></li>
+<li><a href="./searchList.html?menu" target="_self">경제/금융/회계</a></li>
+<li><a href="./searchList.html?menu" target="_self">운전/교통</a></li>
+</ul>
+				</li>
+				<li><a href="/scred" class="">어학</a>
+<ul class="depth2">
+<li><a href="./searchList.html?menu" target="_self">TOEIC</a></li>
+<li><a href="./searchList.html?menu" target="_self">TOFEL</a></li>
+<li><a href="./searchList.html?menu" target="_self">TEPS</a></li>
+<li><a href="./searchList.html?menu" target="_self">OPIC</a></li>
+<li><a href="./searchList.html?menu" target="_self">중국어</a></li>
+<li><a href="./searchList.html?menu" target="_self">일본어</a></li>
+<li><a href="./searchList.html?menu" target="_self">기타</a></li>
+</ul>
+				</li>
+				<li><a href="/music" class="">컴퓨터/IT</a>
+<ul class="depth2">
+<li><a href="./searchList.html?menu" target="_self">프로그래밍언어</a></li>
+<li><a href="./searchList.html?menu" target="_self">오피스(액셀/파워포인트)</a></li>
+<li><a href="./searchList.html?menu" target="_self">웹디자인/홈페이지</a></li>
+<li><a href="./searchList.html?menu" target="_self">그래픽/멀티그래픽</a></li>
+<li><a href="./searchList.html?menu" target="_self">컴퓨터공학</a></li>
+<li><a href="./searchList.html?menu" target="_self">게임</a></li>
+</ul>
+				</li>
+			</ul>
+		</div>
+	</nav>
+	<!-- //GNB 메뉴 -->
+</div>
+</section><!-- 머리(head) 종료 -->
+
+<div id="headSpace">
+</div>
+
+
+
+<div id="main_new_area" style="background:#f8f8f8">
+	<div id="container_member">
+		<div class="history_menu">
+			<ul>
+				<li class="home"><div><a href="main.html">HOME</a> <span> &gt; </span></div></li>
+				<li><div><strong>컴퓨터/IT</strong> <span> &gt; </span></div></li>
+				<li><div><strong>컴퓨터공학</strong></div></li>
+			</ul>
+		</div>
+	</div>
+	<div class="main_new_area">
+		<div id="bookHead">
+			<h1 id="bookName">프로그래머, 수학의 시대</h1>
+			<span>이재현</span>
+			<span>로드북</span>
+			<span>2020-03-18</span>
+			<hr>
+		</div>
+		<div id="bookBody">
+			<div class="thumb"><span><a href="javascript:"><img src="./img/5/5.jpg" alt="" /></a></span></div>
+			<table>
+				<tr>
+					<th>정가</th>
+					<td>16,000원 </td>
+				</tr>
+				<tr>
+					<th>판매가</th>
+					<td>14,400원 <strong>(10%, 1600원 할인)</strong></td>
+				</tr>
+				<tr>
+					<th>배송료</th>
+					<td>신간도서 단 1권도 무료</td>
+				</tr>
+				<tr>
+					<th>수령 예정일</th>
+					<td>지금 택배로 주문하면 내일 수령</td>
+				</tr>
+				<tr>
+					<th>쪽수</th>
+					<td>248</td>
+				</tr>
+				<tr>
+					<th>ISBN</th>
+					<td>9788997924509</td>
+				</tr>
+				<tr>
+					<th><label for="bookNum">수량</label></th>
+					<td><input type="number" id="bookNum" value="1" min="0" max="10" step="1"></td>
+				</tr>
+				<tr>
+					<td colspan="2" id="bookButton">
+						<div class="btn_defualt mb30">
+							<a href="login.html" class="btn_Orange">장바구니</a>
+							<a href="intro.html" class="btn_Red">구매하기</a>
+						</div>
+					</td>
+				</tr>
+			</table>
+			
+			
+		
+		</div>
+		
+	</div>
+</div>
+
+
+
+
+
+
+	<script type="text/javascript">
+	// 새로나온 제품 탭메뉴
+	function mainNewList(target_con, target_btn) {
+		$(".main_new_list").css("display","none");
+		$("#"+target_con).css("display","block");
+
+		target_btn.parent().children().removeClass("active");
+		target_btn.addClass("active");
+	}
+	$("#defaultnew").click();
+
+	// 새로나온 책 탭메뉴
+	function mainBookNewList(target_con, target_btn) {
+		$(".new_book_list").css("display","none");
+		$("#"+target_con).css("display","block");
+
+		target_btn.parent().children().removeClass("active");
+		target_btn.addClass("active");
+	}
+	$("#defaultnew_book").click();
+
+	// 새로나온 성물 탭메뉴
+	function mainScredNewList(target_con, target_btn) {
+		$(".new_scred_list").css("display","none");
+		$("#"+target_con).css("display","block");
+
+		target_btn.parent().children().removeClass("active");
+		target_btn.addClass("active");
+	}
+	$("#defaultnew_scred").click();
+	</script>
+</div><!-- container 종료 -->
+
+<div id="footer"><!-- footer 시작 -->
+	<div class="foot_menu">
+		<ul>
+			<li><a href="intro.html">회사 소개</a></li>
+			<li><a href="#">이용약관</a></li>
+			<li><a href="#" class="curr">개인정보 취급방법</a></li>
+			<li><a href="#">고객센터</a></li>
+		</ul>
+	</div>
+
+	<div class="foot_con">
+		<div class="foot_logo">
+			<p><strong>승운서점</strong></p>
+		</div>
+
+		<div class="foot_address">
+			<p>승운서점 <span>l</span> 대표자: 한승운 <span>l</span> 소재지: 서울시 은평구 응암동</p>
+			<p>사업자등록번호: 123456789 <span>l</span> 통신판매업신고: 제 123456호</a></p>
+			<p>호스팅제공자: 한승운 <span>l</span> 개인정보관리책임자: 한승운<span>l</span> <a href="#">E-mail: swhan9404@naver.com</a></p>
+			<p><em>&copy; 한승운 2020 All rights reserved</em></p>
+		</div>
+
+		<div class="foot_costomer">
+			<p><strong>고객센터</strong></p>
+			<p><strong><em>010-2599-3237</em></strong></p>
+			<p>평일: 9시 30분 ~ 18시 30분<br>점심시간: 13시 20분 ~ 14시 30분<br>토요일·일요일·공휴일 휴무</p>
+			<div class="foot_costomer_btn">
+				<p><a href="#">게시판</a></p>
+				<p><a href="#">온라인문의</a></p>
+				<p><a href="intro.html">홈페이지소개</a></p>
+			</div>
+		</div>
+	</div>
+</div><!-- footer 종료 -->
+</div>
+</body>
+
+
+</html>

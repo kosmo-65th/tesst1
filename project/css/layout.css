@@ -1,0 +1,170 @@
+@charset "utf-8";
+
+/* ----------------- 공통 ----------------- */
+
+body {background:#f8f8f8;}
+#wrap {position:relative; width:100%; height:100%; z-index:0;}
+fieldset legend{display:none;}
+/* ----------------- //공통 ----------------- */
+
+
+/* ----------------- HEADER ----------------- */
+/* Top menu */
+.top_menu_area {position:relative; width:100%; height:35px; background:#f7f7f7; border-bottom:1px solid #eaeaea;}
+.top_menu {position:absolute; top:0; right:50%; margin:0 -600px 0 0; text-align:right;}
+
+.top_menu li {display:inline-block; overflow:hidden; margin-left:15px;}
+.top_menu li a {font-size:13px; color:#444; text-decoration:none;}
+.top_menu li a:hover {color:#a87;}
+
+.top_menu .top_login {display:inline-block; margin:0 20px 0 0; padding-right:24px; }
+.top_menu .top_logout {display:inline-block; margin:0 20px 0 0; padding-right:24px; }
+
+.top_menu_left{position:absolute; top:0; left:50%; margin-left:-593px;}
+.top_menu_left li {display:inline-block; overflow:hidden; margin-left:15px;}
+.top_menu_left li a {font-size:13px; color:#444; text-decoration:none;}
+.top_menu_left li a:hover {color:#a87; text-decoration:underline;}/* hover 마우스 올렸을때 밑줄, 색변경 */
+/* Top menu */
+
+/* logo 공간만 */
+h1.logo {position:absolute; top:70px; left:50%; margin-left:-593px;}
+h1.logo a {display:block; width:202px; height:84px; background:url(logo.jpg) no-repeat; text-indent:-99999px;}/* text-indent 들여쓰기 */
+/* logo */
+
+/* 검색 */
+.top_search_area {position:relative; width:550px; margin:35px auto 0;}
+.top_search_area fieldset {float:left;}
+
+.top_search {float:left; width:348px; height:48px; background:#f8f8f8; border:1px solid #e7e7e7; -moz-border-radius:24px 0 0 24px; -khtml-border-radius:24px 0 0 24px; -webkit-border-radius:24px 0 0 24px; border-radius:24px 0 0 24px;}
+.top_search .curr {float:left; width:110px; height:48px; padding:13px 0 0 24px; font-size:12px; color:#000; line-height:140%;}
+.top_search .curr ul {display:none; position:absolute; top:0; left:0; width:110px; background:#fff; border:1px solid #aaa; -moz-border-radius:24px 0 0 24px; -khtml-border-radius:24px 0 0 24px; -webkit-border-radius:24px 0 0 24px; border-radius:24px 0 0 24px; z-index:1001;}
+.top_search .curr:hover ul {display:block; padding:10px 0 16px;}
+.top_search li {list-style:none; line-height:200%;}
+.top_search a {display:block; padding-left:24px; background-position:76px 8px; font-size:12px; color:#000; text-decoration:none; transition:all .1s;}
+.top_search a:hover {color:#a87; transition:all .1s;}
+.top_search label {float:left;}
+.top_search input {width:235px; height:46px; padding:8px; background:#f8f8f8; border:0; font-size:14px;}
+.top_search_area .btn {float:left;}
+.top_search_area .btn a {display:block; width:80px; height:48px; margin:0 0 0 2px; padding:0 3px 0 0; background:#99072b; border:0; -moz-border-radius:0 24px 24px 0; -khtml-border-radius:0 24px 24px 0; -webkit-border-radius:0 24px 24px 0; border-radius:0 24px 24px 0; font-size:14px; color:#fff; font-weight:600; line-height:45px; text-decoration:none; text-align:center;}
+.top_search_area .btn a:hover {background:#660010; transition:all .5s;}
+
+.top_search_word {clear:both; overflow:hidden; width: 430px; padding:3px 0; text-align:center; margin-bottom:30px;}
+.top_search_word .search_word_box {position: relative; display:inline-block; overflow:hidden; width: 280px; height: 25px; white-space: nowrap; text-align:center; }
+.top_search_word .search_word_box > span {position: absolute; left: 0; top:0;}
+.top_search_word a {display:inline-block; padding:0 10px; font-size:11px; color:#555; text-decoration:none; vertical-align:top;}
+.top_search_word a:hover {text-decoration:underline;}
+.top_search_word .arrow-left {display:inline-block; width:0; height:0; margin:10px 18px; border-top:4px solid transparent; border-bottom:4px solid transparent; border-right:5px solid #d0d0d0; text-indent:-99999px;}
+.top_search_word .arrow-left:hover {border-right:5px solid #222;}
+.top_search_word .arrow-right {display:inline-block; width:0; height:0; margin:10px 18px; border-top:4px solid transparent; border-bottom:4px solid transparent; border-left:5px solid #d0d0d0; text-indent:-99999px;}
+.top_search_word .arrow-right:hover {border-left:5px solid #222;}
+/* 검색 */
+
+/* 상단 배너 -검색어 왼쪽 공간 */
+.top_banner_area {position:absolute; top:62px; right:50%; width:210px; margin:0 -600px 0 0;}
+.top_banner {position:relative;}
+/* 상단 배너 */
+
+/* GNB */
+.gnb_area {position:absolute; top:180px; left:0; width:100%; height:50px; background:#302424; z-index:998;}
+.gnb {position:relative; width:1200px; margin:0 auto;}
+.gnb a {color:#f0efef; font-weight:700; line-height:270%; text-decoration:none;}
+/* font-weight 글씨 굵기, line-height 줄 높이 */
+
+.gnb .depth1 {padding:0 0 0 0; text-align:center;}
+.gnb .depth1 li {display:inline; position:relative;}
+.gnb .depth1 li a {display:inline-block; height:50px; width:200px; padding:0 30px; font-size:17px; transition:all .2s;}
+.gnb .depth1 li a.curr {color:#e33858;}
+.gnb .depth1 li .depth2 {display:none; z-index:1010;}
+
+.gnb .depth1 li:hover a {color:#e33858; transition:all .1s;}
+.gnb .depth1 li:hover .depth2 {display:block; position:absolute; top:36px; left:0; min-width:250px; padding:10px 0; background:#fff; border:1px solid #302424; border-top:0; -moz-border-radius:0 0 4px 4px; -khtml-border-radius:0 0 4px 4px; -webkit-border-radius:0 0 4px 4px; border-radius:0 0 4px 4px; text-align:left; color:#000; transition:all .2s;}
+.gnb .depth1 li:hover .depth2 a {display:block; height:inherit; width:250px; padding:0 0 0 50px; font-size:14px; font-weight:400; line-height:220%; color:#000;}
+.gnb .depth1 li:hover .depth2 a:hover {background:#c0c0c0;}
+
+/* GNB */
+/* ----------------- //HEADER ----------------- */
+
+
+
+/* ----------------- CONTENTS ----------------- */
+
+/* 레이아웃 */
+#container {position:relative; overflow:hidden; min-width:1200px; width:1200px; margin:50px auto 40px;}
+.contants_area {float:left; width:960px; margin:70px 0 0;}
+.contants_area2 {float:left; width:1060px; margin:70px 0 0;}
+/* //레이아웃 */
+
+
+/* ----------------- FOOTER ----------------- */
+
+/* 레이아웃 */
+#footer {clear:both; overflow:hidden; position:relative; width:100%; min-width:1200px; padding:0 30px 30px 23px; z-index:10;}
+.foot_con {width:1200px; margin:0 auto;}
+/* //레이아웃 */
+
+/* 푸터 메뉴 */
+.foot_menu {overflow:hidden; width:1200px; margin:0 auto 10px; padding:10px 15px 10px 23px; border-top:3px solid #505050; border-bottom:1px solid #eaeaea;}
+.foot_menu li {float:left; margin:0 30px 0 0; list-style:none;}
+.foot_menu li a {font-size:13px; color:#222; text-decoration:none;}
+.foot_menu li a:hover {color:#a87;}
+.foot_menu li a.curr {color:#99072b;}
+.foot_menu li a.curr:hover  {color:#a87;}
+.foot_menu select {float:right; margin:4px 0 5px; padding:3px; font-size:13px;}
+/* //푸터 메뉴 */
+
+
+/* 푸터 로고 */
+.foot_logo {clear:both; overflow:hidden; float:left; width:108px; margin:10px 40px 0 15px; text-align:center;}
+.foot_logo strong {display:block; margin:5px 0 13px; width:100px; height:75px; background:url(logo_mini.jpg) center 0 no-repeat; text-indent:-99999px;}
+/* //푸터 로고 */
+
+/* 푸터 주소 및 카피라이트 */
+.foot_address {float:left; margin:24px 0 0;}
+.foot_address p {font-size:11px; color:#555; line-height:200%;}
+.foot_address p a {color:#555; text-decoration:none;}
+.foot_address p a:hover {text-decoration:underline;}
+.foot_address p span {padding:0 10px; color:#cecece;}
+.foot_address p span:hover {text-decoration:none;}
+.foot_address p em {display:inline-block; padding:12px 0 0; font-style:normal;}
+/* //푸터 주소 및 카피라이트 */
+
+/* 푸터 고객센터 */
+.foot_costomer {position:relative; float:right; width:360px; margin:10px 0 0;}
+.foot_costomer p {font-size:12px; color:#222; line-height:180%;}
+.foot_costomer strong {font-size:15px; color:#222; font-weight:600; line-height:180%;}
+.foot_costomer strong em {display:block; padding:0 0 15px; font-family:Tahoma, Geneva, sans-serif; font-size:24px; font-weight:400; color:#99072b; font-style:normal; letter-spacing:0;}
+.foot_costomer_btn {position:absolute; top:4px; right:0;}
+.foot_costomer_btn a {display:block; width:160px; margin-bottom:7px; padding:6px 0; background:#fff; border:1px solid #cdcdcd; -moz-border-radius:24px; -khtml-border-radius:24px; -webkit-border-radius:24px; border-radius:24px; font-size:12px; font-weight:600; color:#555; text-align:center; text-decoration:none;}
+.foot_costomer_btn a:hover {background-color : #c0c0c0; opacitiy:0.7; border:1px solid #aaa; transition:all .2s;}
+/* //푸터 고객센터 */
+
+/* ----------------- //FOOTER ----------------- */
+
+
+/* 위치네비게이션 */
+.history_menu {position:absolute; top:0; left:250px; clear:both; margin:24px 0 0; z-index:10;}
+.history_menu li.home {padding:0 0 0 20px; border:0;}
+.history_menu li.home a {padding:0; border:0; background:none; font-size:12px; color:#222; text-decoration:none;}
+.history_menu li.home a:hover {border:0; text-decoration:underline;}
+.history_menu li.home span {position:absolute; top:8px; right:-24px; width:8px; height:12px; background:url(/common/images/icon_history_arrow.png) no-repeat; text-indent:-99999px;}
+
+.history_menu li {position:relative; float:left; margin:0 36px 0 0; font-size:12px; color:#222; line-height:230%; list-style:none; cursor:pointer;}
+.history_menu li div {margin:5px; padding:0 30px 0 10px; background:#fff; border:1px solid #e4e4e4; -moz-border-radius:2px; -khtml-border-radius:2px; -webkit-border-radius:2px; border-radius:2px; line-height:160%;}
+.history_menu li div strong {font-weight:normal;}
+.history_menu li div i {display:inline-block; position:absolute; top:12px; right:14px; width:5px; height:5px; border-top:5px solid #aaa; border-left:4px solid transparent; border-right:4px solid transparent;}
+.history_menu li div span {position:absolute; top:8px; right:-24px; width:8px; height:12px; background:url(/common/images/icon_history_arrow.png) no-repeat; text-indent:-99999px;}
+
+.history_menu li:hover div {border:1px solid #777;}
+.history_menu li:hover i {border-top:5px solid #444;}
+.history_menu li:hover ul {display:block; border:1px solid #777;}
+
+.history_menu li ul {display:none; position:absolute; top:30px; left:5px; width:230px; padding:3px; background:#fff; border:1px solid #e4e4e4; -moz-border-radius:2px; -khtml-border-radius:2px; -webkit-border-radius:2px; border-radius:2px;}
+.history_menu li ul li {float:left; width:100%; margin:0; padding:0; background:none; border:0; line-height:200%;}
+.history_menu li ul li:hover {border:0;}
+.history_menu li ul li a {display:block; padding:1px 5px 1px 12px; background:url(/common/images/bl_g.png) 5px center no-repeat; font-size:12px; color:#222; text-decoration:none;}
+.history_menu li ul li a:hover {background:#f8f8f8 url(/common/images/bl_g.png) 5px center no-repeat; text-decoration:underline;}
+.history_menu li ul.ssize {width:100px;}
+.history_menu li ul.ssize li {float:none; width:100%;}
+.history_menu li ul.ssize2 {width:200px;}
+.history_menu li ul.ssize2 li {float:none; width:100%;}
+/* //위치네비게이션 */
